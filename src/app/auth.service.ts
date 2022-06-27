@@ -8,12 +8,13 @@ export class AuthService {
   constructor(private http:HttpClient) {}
 
   getData(id: any) {
-    return this.http.get('https://dummyapi.io/data/v1/post', {
+    return this.http.get('https://dummyapi.io/data/v1/post?limit=10', {
       headers: { 'app-id': id },
     });
   }
-  addData(reqBody:any,id:any){
-    return this.http.post('https://dummyapi.io/data/v1/post/create',reqBody, { headers: new HttpHeaders({ 'app-id': id}) })
+  addData(formData:any,id:any){
+    console.log(formData);
+    return this.http.post('https://dummyapi.io/data/v1/post/create',formData, { headers: new HttpHeaders({ 'app-id': id}) })
   }
 
   tagsData(id: any){

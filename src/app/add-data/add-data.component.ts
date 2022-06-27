@@ -19,14 +19,14 @@ addDataForm!:FormGroup
     this.tags()
     this.addDataForm = this.fb.group({
       tags: new FormControl('', [Validators.required]),
-      image: new FormControl('', [Validators.required]),
+      image: new FormControl(null, [Validators.required]),
       likes: new FormControl('', [Validators.required]),
-      fname: new FormControl('', [Validators.required]),
+      // fname: new FormControl('', [Validators.required]),
 
-      lname: new FormControl('', [Validators.required]),
-      picture: new FormControl('', [Validators.required]),
-      title: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
+      // lname: new FormControl('', [Validators.required]),
+      // picture: new FormControl('', [Validators.required]),
+      // title: new FormControl('', [Validators.required]),
+      // date: new FormControl('', [Validators.required]),
       text: new FormControl('', [Validators.required]),
     })
   }
@@ -37,24 +37,18 @@ addDataForm!:FormGroup
     const formData={
 image:this.addDataForm.value.image,
 likes:this.addDataForm.value.likes,
-owner:{
-  firstName:this.addDataForm.value.fname,
-
-  lastName:this.addDataForm.value.lname,
-  picture:this.addDataForm.value.picture,
-  title:this.addDataForm.value.title
-},
-publishDate:this.addDataForm.value.date,
+owner:"60d0fe4f5311236168a109d5",
+// publishDate:this.addDataForm.value.date,
 tags:this.addDataForm.value.tags,
 text:this.addDataForm.value.text
     }
-    const data=[formData]
-const limit=20;
-const page=0;
-const total=873;
-const reqBody={data,limit,page,total}
+//     const data=[formData]
+// const limit=20;
+// const page=0;
+// const total=873;
+// const reqBody={data,limit,page,total}
 
-      this.auth.addData(reqBody,`${'62907a7cc1fbfb9a270f4060'}`).subscribe({
+      this.auth.addData(formData,`${'62907a7cc1fbfb9a270f4060'}`).subscribe({
         next: (res) => {
           this.val = res;
       console.log(res)

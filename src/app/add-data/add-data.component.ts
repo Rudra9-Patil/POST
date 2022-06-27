@@ -44,7 +44,7 @@ owner:{
   picture:this.addDataForm.value.picture,
   title:this.addDataForm.value.title
 },
-
+publishDate:this.addDataForm.value.date,
 tags:this.addDataForm.value.tags,
 text:this.addDataForm.value.text
     }

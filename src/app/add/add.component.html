@@ -1,0 +1,39 @@
+<div class="example-button-row">
+<button (click)="addData()" mat-raised-button color="primary">Add</button></div>
+<div class="container w-100" *ngFor="let user of userData">
+<mat-card class="example-card" >
+  <mat-card-header  >
+
+      <img mat-card-avatar  src="{{ user.owner.picture }}" style="border-radius: 60px;"><br>
+
+    <mat-card-title>{{ user.owner.firstName }}</mat-card-title>
+    <mat-card-subtitle>{{ user.publishDate }}</mat-card-subtitle>
+  </mat-card-header>
+<mat-card-content style="display: flex;">
+  <img mat-card-image src="{{ user.image }}" style="float: left; width: 200px;height:200px" >
+<div style="float: left; "class='ml-4' >
+    <small >{{ user.publishDate }}
+    </small>
+    <small >{{ user.text }}</small><br>
+    <small  class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{ user.tags[0] }}</small>
+    <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{ user.tags[1] }}</small><br>
+    <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{ user.tags[2] }}</small><br>
+
+    <i class="fas fa-thumbs-up">{{ user.likes }}</i>
+
+
+
+
+  </div>
+</mat-card-content>
+
+</mat-card>
+</div>
+
+
+<div>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"showFirstLastButtons
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

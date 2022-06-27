@@ -35,18 +35,18 @@ addDataForm!:FormGroup
     console.log(this.addDataForm.value)
 
     const formData={
-      text:this.addDataForm.value.text,
 image:this.addDataForm.value.image,
 likes:this.addDataForm.value.likes,
-tags:this.addDataForm.value.tags,
 owner:{
   firstName:this.addDataForm.value.fname,
 
   lastName:this.addDataForm.value.lname,
   picture:this.addDataForm.value.picture,
-
+  title:this.addDataForm.value.title
 },
 
+tags:this.addDataForm.value.tags,
+text:this.addDataForm.value.text
     }
     const data=[formData]
 const limit=20;

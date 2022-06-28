@@ -3,74 +3,30 @@
   <form class="p-4" [formGroup]="addDataForm" (ngSubmit)="submitForm()">
     <div class="form-group">
       <label for="exampleInputEmail1">image</label>
-      <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="image">
+      <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="image">
 
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">likes</label>
       <input type="number" class="form-control" id="exampleInputPassword1" formControlName="likes">
     </div>
-    <!-- <div class="form-group form-check">
-      <label for="exampleInputPassword1">Firstname</label>
-      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="fname">
-    </div>
 
-    <div class="form-group form-check">
-      <label for="exampleInputPassword1">Lastname</label>
-      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="lname">
-    </div>
-    <div class="form-group form-check">
-      <label for="exampleInputPassword1">Picture</label>
-      <input type="url" class="form-control" id="exampleInputPassword1" formControlName="picture">
-    </div>
-    <div class="form-group form-check">
-      <label for="exampleInputPassword1">Title</label>
-      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="title">
-    </div>
-    <div class="form-group form-check">
-      <label for="exampleInputPassword1">Publish Date</label>
-      <input type="date" class="form-control" id="exampleInputPassword1" formControlName="date">
-    </div> -->
-
-   <!-- <div class="form-group col-sm-3"  >
-      <input type="text" >
-      <label for="input" class="mb-0 ml-2" >Tags</label > -->
-      <!-- <select class="select"   formControlName="tags"  multiple > -->
-        <!-- <option selected></option> -->
-        <!-- <option *ngFor="let user of tagsData" [value]="user">{{user}}</option>
-      </select> -->
 
     <!-- </div> -->
-    <div>
+    <div class="form-group form-check">
       <mat-form-field appearance="fill">
         <mat-label>Tags</mat-label>
-        <mat-select formControlName="tags" multiple >
-          <!-- <mat-select-trigger >
-            {{tagsData.value?.[0] || ''}}
-            <span *ngIf="(tagsData.value?.length || 0) > 1" class="example-additional-selection">
-              (+{{(tagsData.value?.length || 0) - 1}} {{tagsData.value?.length === 2 ? 'other' : 'others'}})
-            </span> -->
-          <!-- </mat-select-trigger> -->
+        <mat-select formControlName="tags" multiple>
+
           <mat-option *ngFor="let tags of tagsData" [value]="tags">{{tags}}</mat-option>
 
         </mat-select>
 
       </mat-form-field>
-    </div>
-     <!--  <select class="custom-select" id="inputGroupSelect02"> -->
-      <!-- <option selected>Choose...</option> -->
-      <!-- <option *ngFor="let user of [tagsData] ;index of i" [value]="user">{{user}}</option> -->
-      <!-- <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select> -->
 
-    <!-- <mat-form-field appearance="fill">
-      <mat-label>Toppings</mat-label> -->
-     <!--  <mat-select [formControl]="toppings" multiple>
-        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-      </mat-select> -->
-    <!-- </mat-form-field> -->
+    </div>
+
 
 
 

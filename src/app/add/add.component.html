@@ -1,39 +1,101 @@
 <div class="example-button-row">
-<button (click)="addData()" mat-raised-button color="primary">Add</button></div>
+  <button (click)="addData()" mat-raised-button color="primary">Add</button>
+</div>
 <div class="container w-100" *ngFor="let user of userData">
-<mat-card class="example-card" >
-  <mat-card-header  >
+  <mat-card class="example-card">
+    <mat-card-header>
 
-      <img mat-card-avatar  src="{{ user.owner.picture }}" style="border-radius: 60px;"><br>
+      <img mat-card-avatar src="{{ user.owner.picture }}" style="border-radius: 60px;"><br>
 
-    <mat-card-title>{{ user.owner.firstName }}</mat-card-title>
-    <mat-card-subtitle>{{ user.publishDate }}</mat-card-subtitle>
-  </mat-card-header>
-<mat-card-content style="display: flex;">
-  <img mat-card-image src="{{ user.image }}" style="float: left; width: 200px;height:200px" >
-<div style="float: left; "class='ml-4' >
-    <small >{{ user.publishDate }}
-    </small>
-    <small >{{ user.text }}</small><br>
-    <small  class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{ user.tags[0] }}</small>
-    <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{ user.tags[1] }}</small><br>
-    <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{ user.tags[2] }}</small><br>
+      <mat-card-title>{{ user.owner.firstName }}</mat-card-title>
+      <mat-card-subtitle>{{ user.publishDate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="display: flex;">
+      <img mat-card-image src="{{ user.image }}" style="float: left; width: 200px;height:200px">
+      <div style="float: left; " class='ml-4'>
+        <small>{{ user.publishDate }}
+        </small>
+        <small>{{ user.text }}</small><br>
+        <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{
+          user.tags[0] }}</small>
+        <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{
+          user.tags[1] }}</small><br>
+        <small class=" p-1" style="border: 1px solid pink;background-color: rgb(238, 65, 94);border-radius: 5px;">{{
+          user.tags[2] }}</small><br>
 
-    <i class="fas fa-thumbs-up">{{ user.likes }}</i>
+        <i class="fas fa-thumbs-up">{{ user.likes }}</i>
 
 
 
 
-  </div>
-</mat-card-content>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-card-actions>
 
-</mat-card>
+        <button type="button" class="btn btn-danger" (click)="OnEdit(user)" data-toggle="modal"
+          data-target="#exampleModal">Edit</button>
+        <button mat-button color="warn" (click)="onDelete(user.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card-footer>
+
+
+  </mat-card>
 </div>
 
 
 <div>
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]" 
-    aria-label="Select page of users"
-  ></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateForm">
+
+          <div class="class-body">
+
+
+            <div class="form-group">
+              <label>Tags</label>
+              <input type="text" class="form-control" formControlName="tags">
+
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Text</label>
+              <input type="text" class="form-control" formControlName="text">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Likes</label>
+              <input type="text" class="form-control" formControlName="likes">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Image</label>
+              <input type="text" class="form-control" formControlName="image">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cls">Close</button>
+              <button type="button" class="btn btn-primary" (click)="onUpdate()">Update</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
 </div>
